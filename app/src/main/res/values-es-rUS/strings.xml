@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="err_load_msg">Carga fallida</string>
+    <string name="err_permission_title">Permiso Requerido</string>
+    <string name="err_permission_desc">Se requieren permisos esenciales para que %1$s funcione correctamente. Conceda los permisos en Configuración.</string>
+    <string name="err_permission_btn_pos">Ir a Configuración</string>
+    <string name="err_permission_btn_neg">Cancelar</string>
+    <string name="close">Cerrar</string>
+
+    <!--  Main  -->
+    <string name="btn_start">Comenzar</string>
+    <string name="btn_settings">Configuración</string>
+    <string name="btn_media">Albumes de Medios</string>
+    <string name="btn_music">Albumes de Música</string>
+    <string name="btn_buy">Eliminar anuncios</string>
+    <string name="btn_exit">Salir</string>
+    <plurals name="albums_cnt">
+        <item quantity="one">%d álbum seleccionado</item>
+        <item quantity="other">%d álbumes seleccionados</item>
+        <item quantity="many">%d álbumes seleccionados</item>
+    </plurals>
+
+    <!--  Slideshow  -->
+    <string name="no_content">No medios encontrado</string>
+    <string name="tooltip_repeat">Repetir pista</string>
+    <string name="slideshow_help">
+<Data>
+<![CDATA[
+<h3>Gestos</h3>
+<ul>
+<li><b>Un solo toque</b>: Mostrar menú</li>
+<li><b>Doble toque a la derecha de la pantalla</b>: Medio siguiente</li>
+<li><b>Doble toque a la izquierda de la pantalla</b>: Medio anterior</li>
+<li><b>Deslizar a la izquierda</b>: Medio siguiente</li>
+<li><b>Deslizar a la derecha</b>: Medio anterior</li>
+<li><b>Deslizar hacia abajo</b>: Música siguiente</li>
+<li><b>Deslizar hacia arriba</b>: Música anterior</li>
+</ul>
+]]>
+</Data>
+    </string>
+
+    <!--  Slideshow Ads  -->
+    <string name="ad">Anuncio</string>
+    <string name="btn_skip_ad">Omitir</string>
+    <string name="ad_closing">Cerrando en %1$d…</string>
+    <string name="ad_offline_headline">¡Experimenta Animaroll sin anuncios!</string>
+    <string name="ad_offline_body">¿Cansado de las interrupciones? Actualiza a nuestra versión sin anuncios para acceder sin interrupciones y sin distracciones a todas tus funciones favoritas.</string>
+    <string name="ad_offline_call_to_action">¡Actualice ahora!</string>
+
+    <!--  Folder  -->
+    <string name="title_media_albums">Albumes de medios</string>
+    <string name="title_media_albums_info">Seleccione las carpetas que contienen los archivos de imagen/vídeo que desea ver en la diapositiva.</string>
+    <string name="title_music_albums">Albumes de música</string>
+    <string name="title_music_albums_info">Seleccione las carpetas que contienen los archivos de música que desea reproducir en la diapositiva.</string>
+
+    <plurals name="folder_item_cnt">
+        <item quantity="one">%d archivo</item>
+        <item quantity="other">%d archivos</item>
+        <item quantity="many">%d archivos</item>
+    </plurals>
+    <plurals name="folders_cnt">
+        <item quantity="one">%d carpeta</item>
+        <item quantity="other">%d carpetas</item>
+        <item quantity="many">%d carpetas</item>
+    </plurals>
+
+    <!--  Settings  -->
+    <string name="title_setting">Configuración</string>
+    <string name="category_general">General</string>
+    <string name="category_media">Diapositivas</string>
+    <string name="category_about">Acerca</string>
+    <string name="boot_title">Lanzar al inicio</string>
+    <string name="boot_summary">Ejecutar cuando se inicia android</string>
+    <string name="startup_title">Inicio automático</string>
+    <string name="startup_summary">Iniciar diapositivas al iniciar la aplicación</string>
+    <string name="time_title">Mostrar hora</string>
+    <string name="mediatype_title">Tipo de medios</string>
+    <string name="time_summary">Mostrar la hora actual en diapositivas</string>
+    <string name="scale_title">Ajustar medios</string>
+    <string name="scale_summary">Cambia el tamaño de medios para que quepan en el espacio disponible</string>
+    <string name="transition_title">Transición</string>
+    <string name="transition_summary">Efectos visuales entre medios</string>
+    <string name="duration_title">Duración de imágenes</string>
+    <string name="duration_summary">Con qué frecuencia cambian las imágenes %s</string>
+    <string name="action_settings">Configuración</string>
+    <string name="app_rate_title">Califica la aplicación</string>
+    <string name="app_rate_summary">¿Te gusta la aplicación? Comparte tu opinión.</string>
+    <string name="app_share_title">Comparte la aplicación</string>
+    <string name="app_share_summary">¡Comparte esta aplicación con tus amigos!</string>
+    <string name="app_share_msg">He estado usando %1$s. Convierte tus fotos y vídeos en pósters digitales. Descárgatelo aquí: %2$s</string>
+    <string name="app_website_title">Página web</string>
+    <string name="app_copy_summary">&#169; %1$s lvalentin</string>
+
+</resources>

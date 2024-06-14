@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="pref_time">
+        <item>Off</item>
+        <item>Top right</item>
+        <item>Bottom right</item>
+        <item>Top left</item>
+        <item>Bottom left</item>
+    </string-array>
+
+    <string-array name="pref_duration">
+        <item>5 seconds</item>
+        <item>10 seconds</item>
+        <item>15 seconds</item>
+        <item>20 seconds</item>
+        <item>30 seconds</item>
+        <item>1 minute</item>
+    </string-array>
+
+    <string-array name="pref_scale">
+        <item>Fit</item>
+        <item>Cover</item>
+        <item>Stretch</item>
+    </string-array>
+
+    <string-array name="pref_transition">
+        <item>Rotate</item>
+        <item>Slide</item>
+        <item>Scroll</item>
+        <item>Scale</item>
+        <item>Fade</item>
+        <item>Random</item>
+    </string-array>
+
+    <string-array name="pref_mediatype">
+        <item>Images &amp; Videos</item>
+        <item>Images only</item>
+        <item>Videos only</item>
+    </string-array>
+
+</resources>

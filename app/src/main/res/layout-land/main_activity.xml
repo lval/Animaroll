@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <com.google.android.material.navigationrail.NavigationRailView
+        android:id="@+id/navigation_rail"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="false"
+        app:backgroundTint="@color/background"
+        app:itemBackground="@drawable/btn_nav"
+        app:itemIconSize="28dp"
+        app:itemIconTint="@color/icon_color1"
+        app:itemTextColor="@color/text_primary"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/nav_menu"
+        app:menuGravity="center" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_toEndOf="@id/navigation_rail">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/page_spacing">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/app_name"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/font_lg"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/btn_oval_primary"
+                    android:drawableTop="@drawable/ic_logo"
+                    android:drawablePadding="@dimen/btn_img_dp_lg"
+                    android:drawableTint="@color/icon_color1"
+                    android:elevation="15dp"
+                    android:focusable="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center_horizontal"
+                    android:nextFocusLeft="@id/nav_settings"
+                    android:nextFocusRight="@id/btn_media"
+                    android:text="@string/btn_start"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/font_md" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="2"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingTop="20dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_media"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_spacing"
+                    android:layout_marginBottom="@dimen/item_spacing"
+                    android:drawableStart="@drawable/ic_media"
+                    android:drawablePadding="@dimen/btn_img_dp"
+                    android:drawableTint="@color/icon_color1"
+                    android:focusable="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="start|center_vertical"
+                    android:lineSpacingExtra="@dimen/line_space"
+                    android:nextFocusDown="@id/btn_music"
+                    android:text="@string/btn_media"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/font_md" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_music"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_spacing"
+                    android:layout_marginBottom="@dimen/item_spacing"
+                    android:drawableStart="@drawable/ic_music"
+                    android:drawablePadding="@dimen/btn_img_dp"
+                    android:drawableTint="@color/icon_color1"
+                    android:focusable="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="start|center_vertical"
+                    android:lineSpacingExtra="@dimen/line_space"
+                    android:text="@string/btn_music"
+                    android:textColor="@color/text_primary"
+                    android:textSize="@dimen/font_md" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_buy"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/item_spacing"
+                    android:layout_marginBottom="@dimen/item_spacing"
+                    android:background="@drawable/btn_tertiary"
+                    android:drawableStart="@drawable/ic_no_ads"
+                    android:drawablePadding="@dimen/btn_img_dp"
+                    android:drawableTint="@color/tertiary"
+                    android:focusable="true"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="start|center_vertical"
+                    android:lineSpacingExtra="@dimen/line_space"
+                    android:paddingTop="14sp"
+                    android:paddingBottom="14sp"
+                    android:text="@string/btn_buy"
+                    android:textColor="@color/tertiary"
+                    android:textSize="@dimen/font_lg" />
+
+            </LinearLayout>
+
+        </GridLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

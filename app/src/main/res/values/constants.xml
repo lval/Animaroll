@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name" translatable="false">Animaroll</string>
+    <string name="app_website_url" translatable="false">https://animaroll.app</string>
+    <string name="admob_app_id" translatable="false">ca-app-pub-1499387295328189~1841047048</string>
+<!--    <string name="admob_native_unit_id" translatable="false">ca-app-pub-1499387295328189/9020537210</string>-->
+    <string name="admob_native_unit_id" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
+    <string name="billing_public_key" translatable="false">MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmJVgy3GjkJ2Q1A1VG5xF1/vCVNLrV5lHPdJttMh5LHrpET/riMUEqWoGcuUmlBeGYxCJoG9G/53M+1LVDUKCAFFoQHm0cU5Fe1nYnsBzBWdIW6OAioki2ek+lwV7Net911nF2PWj2W/u/xoBnvZ3PDDC2wL922natya7qwqTP8fsBdbOqfi9R78Yc0pdyU41Ae7i+K+1FGiyQNsy3wvtqAXiVSKtLnCU29f5IFjLbXdP/AKo3kDmJ1JV/QPxNqt1Ek81axMmOQhfdjm0I9sNkWFS62b0O2MYze1L3tL0qkRXTU+Fx1Xz72/Yqk5HvC4xyQDwDgRMfR1IqNdmfCaAsQIDAQAB</string>
+
+</resources>

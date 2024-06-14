@@ -1,0 +1,4 @@
+<resources>
+    <integer name="anim_obj_in">280</integer>
+    <integer name="anim_obj_out">230</integer>
+</resources>

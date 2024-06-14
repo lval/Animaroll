@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="enc_pref" translatable="false">s_pref</string>
+    <string name="epfk_no_ads" translatable="false">epfk_no_ads</string>
+
+    <string name="pfk_boot" translatable="false">pfk_boot</string>
+    <string name="pfk_startup" translatable="false">pfk_startup</string>
+    <string name="pfk_dir_media" translatable="false">pfk_dir_media</string>
+    <string name="pfk_dir_music" translatable="false">pfk_dir_music</string>
+    <string name="pfk_display_time" translatable="false">pfk_display_time</string>
+    <string name="pfk_img_duration" translatable="false">pfk_img_duration</string>
+    <string name="pfk_media_type" translatable="false">pfk_media_type</string>
+    <string name="pfk_media_scale" translatable="false">pfk_media_scale</string>
+    <string name="pfk_media_transition" translatable="false">pfk_media_transition</string>
+
+    <string name="spf_music_ix" translatable="false">spf_music_ix</string>
+
+</resources>

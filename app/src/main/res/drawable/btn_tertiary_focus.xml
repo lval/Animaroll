@@ -1,0 +1,25 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@color/btn_tertiary_ripple">
+
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/btn_tertiary_ripple"/>
+            <corners android:radius="@dimen/radius_lg" />
+        </shape>
+    </item>
+
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/background" />
+            <corners android:radius="@dimen/radius_lg" />
+            <padding
+                android:left="@dimen/btn_spacing_md"
+                android:top="@dimen/btn_spacing_lg"
+                android:right="@dimen/btn_spacing_md"
+                android:bottom="@dimen/btn_spacing_lg" />
+            <stroke
+                android:width="2dp"
+                android:color="@color/btn_tertiary_border" />
+        </shape>
+    </item>
+</ripple>

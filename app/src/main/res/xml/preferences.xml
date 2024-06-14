@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory
+        android:title="@string/category_general"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/pfk_boot"
+            android:summary="@string/boot_summary"
+            android:title="@string/boot_title"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/category_media"
+        app:iconSpaceReserved="false">
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/pfk_startup"
+            android:summary="@string/startup_summary"
+            android:title="@string/startup_title"
+            app:iconSpaceReserved="false" />
+
+        <ListPreference
+            android:defaultValue="1"
+            android:dialogTitle="@string/time_title"
+            android:entries="@array/pref_time"
+            android:entryValues="@array/pref_time_val"
+            android:key="@string/pfk_display_time"
+            android:summary="%s"
+            android:title="@string/time_title"
+            app:iconSpaceReserved="false" />
+
+        <ListPreference
+            android:defaultValue="1"
+            android:dialogTitle="@string/mediatype_title"
+            android:entries="@array/pref_mediatype"
+            android:entryValues="@array/pref_mediatype_val"
+            android:key="@string/pfk_media_type"
+            android:summary="%s"
+            android:title="@string/mediatype_title"
+            app:iconSpaceReserved="false" />
+
+        <ListPreference
+            android:defaultValue="1"
+            android:dialogTitle="@string/scale_title"
+            android:entries="@array/pref_scale"
+            android:entryValues="@array/pref_scale_val"
+            android:key="@string/pfk_media_scale"
+            android:summary="%s"
+            android:title="@string/scale_title"
+            app:iconSpaceReserved="false" />
+
+        <ListPreference
+            android:defaultValue="1"
+            android:dialogTitle="@string/transition_title"
+            android:entries="@array/pref_transition"
+            android:entryValues="@array/pref_transition_val"
+            android:key="@string/pfk_media_transition"
+            android:summary="%s"
+            android:title="@string/transition_title"
+            app:iconSpaceReserved="false" />
+
+        <ListPreference
+            android:defaultValue="15"
+            android:dialogTitle="@string/duration_title"
+            android:entries="@array/pref_duration"
+            android:entryValues="@array/pref_duration_val"
+            android:key="@string/pfk_img_duration"
+            android:summary="%s"
+            android:title="@string/duration_title"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory
+        android:title="@string/category_about"
+        app:iconSpaceReserved="false">
+
+        <Preference
+            android:key="app_rate"
+            android:title="@string/app_rate_title"
+            android:summary="@string/app_rate_summary"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="app_share"
+            android:title="@string/app_share_title"
+            android:summary="@string/app_share_summary"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="app_website"
+            android:title="@string/app_website_title"
+            android:summary="@string/app_website_url"
+            app:iconSpaceReserved="false" />
+
+        <Preference
+            android:key="app_version"
+            app:iconSpaceReserved="false" />
+
+    </PreferenceCategory>
+
+</androidx.preference.PreferenceScreen>

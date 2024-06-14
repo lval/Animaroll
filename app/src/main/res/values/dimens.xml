@@ -1,0 +1,63 @@
+<resources>
+    <dimen name="font">15sp</dimen>
+    <dimen name="font_xl">22sp</dimen>
+    <dimen name="font_lg">18sp</dimen>
+    <dimen name="font_md">16sp</dimen>
+    <dimen name="font_sm">14sp</dimen>
+    <dimen name="font_xs">13sp</dimen>
+    <dimen name="line_space">2sp</dimen>
+
+    <dimen name="radius">10dp</dimen>
+    <dimen name="radius_lg">14dp</dimen>
+    <dimen name="radius_xl">25dp</dimen>
+    <dimen name="radius_sm">6dp</dimen>
+
+    <dimen name="btn_img_dp">8dp</dimen>
+    <dimen name="btn_img_dp_lg">10dp</dimen>
+    <dimen name="btn_img_dp_sm">4dp</dimen>
+    <dimen name="page_spacing">15dp</dimen>
+    <dimen name="ad_spacing_x">20dp</dimen>
+    <dimen name="ad_spacing_y">30dp</dimen>
+    <dimen name="btn_spacing">12dp</dimen>
+    <dimen name="btn_spacing_xxl">22dp</dimen>
+    <dimen name="btn_spacing_xl">20dp</dimen>
+    <dimen name="btn_spacing_lg">18dp</dimen>
+    <dimen name="btn_spacing_md">14dp</dimen>
+    <dimen name="btn_spacing_sm">8dp</dimen>
+    <dimen name="btn_spacing_xs">5dp</dimen>
+    <dimen name="item_spacing">4.5dp</dimen>
+
+    <dimen name="lst_info_spacing_x">20dp</dimen>
+    <dimen name="lst_info_spacing_y">26dp</dimen>
+    <dimen name="lst_info_img_dp">19dp</dimen>
+    <dimen name="lst_info_sep">8dp</dimen>
+
+    <dimen name="chk_size">1.35</dimen>
+
+    <dimen name="lst_spacing_x">18dp</dimen>
+    <dimen name="lst_spacing_y">20dp</dimen>
+
+    <dimen name="gnt_ad_indicator_width">30dp</dimen>
+    <dimen name="gnt_ad_indicator_height">20dp</dimen>
+    <dimen name="gnt_ad_indicator_bar_height">30dp</dimen>
+    <dimen name="gnt_ad_indicator_top_margin">0dp</dimen>
+    <dimen name="gnt_ad_indicator_bottom_margin">10dp</dimen>
+    <dimen name="gnt_ad_indicator_text_size">10sp</dimen>
+
+<!--    <dimen name="text_size_display_4_material">112sp</dimen>-->
+<!--    <dimen name="text_size_display_3_material">56sp</dimen>-->
+<!--    <dimen name="text_size_display_2_material">45sp</dimen>-->
+<!--    <dimen name="text_size_display_1_material">34sp</dimen>-->
+<!--    <dimen name="text_size_headline_material">24sp</dimen>-->
+<!--    <dimen name="text_size_title_material">20sp</dimen>-->
+<!--    <dimen name="text_size_subhead_material">16sp</dimen>-->
+<!--    <dimen name="text_size_title_material_toolbar">20dp</dimen>-->
+<!--    <dimen name="text_size_subtitle_material_toolbar">16dp</dimen>-->
+<!--    <dimen name="text_size_menu_material">16sp</dimen>-->
+<!--    <dimen name="text_size_menu_header_material">14sp</dimen>-->
+<!--    <dimen name="text_size_body_2_material">14sp</dimen>-->
+<!--    <dimen name="text_size_body_1_material">14sp</dimen>-->
+<!--    <dimen name="text_size_caption_material">12sp</dimen>-->
+<!--    <dimen name="text_size_button_material">14sp</dimen>-->
+
+</resources>

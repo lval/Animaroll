@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="pref_time">
+        <item>No mostrar</item>
+        <item>Arriba a la derecha</item>
+        <item>Abajo a la derecha</item>
+        <item>Arriba a la izquierda</item>
+        <item>Abajo a la izquierda</item>
+    </string-array>
+
+    <string-array name="pref_duration">
+        <item>5 segundos</item>
+        <item>10 segundos</item>
+        <item>15 segundos</item>
+        <item>20 segundos</item>
+        <item>30 segundos</item>
+        <item>1 minuto</item>
+    </string-array>
+
+    <string-array name="pref_scale">
+        <item>Ajustado</item>
+        <item>Portada</item>
+        <item>Rellenar</item>
+    </string-array>
+
+    <string-array name="pref_transition">
+        <item>Girar</item>
+        <item>Deslizar</item>
+        <item>Desplazar</item>
+        <item>Escalar</item>
+        <item>Desvanecer</item>
+        <item>Al azar</item>
+    </string-array>
+
+    <string-array name="pref_mediatype">
+        <item>Imágenes y Vídeos</item>
+        <item>Sólo imágenes</item>
+        <item>Sólo vídeos</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingStart="@dimen/lst_spacing_x"
+    android:paddingTop="@dimen/lst_spacing_y"
+    android:paddingEnd="@dimen/lst_spacing_x"
+    android:paddingBottom="@dimen/lst_spacing_y"
+    android:background="?attr/selectableItemBackground">
+
+    <CheckBox
+        android:id="@+id/chk_music"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="@dimen/chk_size"
+        android:scaleY="@dimen/chk_size"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/tv_music_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/chk_music"
+        android:paddingStart="@dimen/lst_spacing_x"
+        android:textColor="@color/text_primary"
+        android:textSize="@dimen/font_md"
+        android:fontFamily="sans-serif-medium" />
+
+    <TextView
+        android:id="@+id/tv_music_item_cnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/chk_music"
+        android:layout_below="@id/tv_music_name"
+        android:paddingStart="@dimen/lst_spacing_x"
+        android:textColor="@color/text_secondary"
+        android:textSize="@dimen/font_sm" />
+
+</RelativeLayout>

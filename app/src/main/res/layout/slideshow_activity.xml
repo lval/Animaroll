@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container_slideshow"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:focusable="true"
+    android:keepScreenOn="true">
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:focusable="false"
+        tools:ignore="ContentDescription" />
+
+    <TextureView
+        android:id="@+id/texture_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:focusable="false"
+        tools:ignore="ContentDescription" />
+
+    <TextClock
+        android:id="@+id/lbl_time"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="35sp"
+        android:layout_marginTop="15sp"
+        android:layout_marginEnd="35sp"
+        android:layout_marginBottom="15sp"
+        android:focusable="false"
+        android:format12Hour="h:mm"
+        android:padding="4sp"
+        android:shadowColor="#D9000000"
+        android:shadowDx="0"
+        android:shadowDy="3"
+        android:shadowRadius="8"
+        android:textColor="#CCFFFFFF"
+        android:textSize="48sp"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <LinearLayout
+        android:id="@+id/err_msg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:src="@drawable/ic_stop"
+            android:tintMode="src_in"
+            app:tint="#73FFFFFF"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:paddingTop="2dp"
+            android:text="@string/no_content"
+            android:textAlignment="center"
+            android:textColor="#73FFFFFF"
+            android:textSize="38sp"
+            tools:ignore="ContentDescription" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/ad_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_slideshow_toolbar"
+        android:fitsSystemWindows="true"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <ImageButton
+                android:id="@+id/btn_info"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_marginEnd="10dp"
+                android:background="?attr/selectableItemBackground"
+                android:src="@drawable/ic_help"
+                android:scaleType="centerInside"
+                android:padding="0dp"
+                android:contentDescription=""
+                app:tint="@color/white" />
+
+            <ImageButton
+                android:id="@+id/btn_repeat"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:layout_marginEnd="15dp"
+                android:background="?attr/selectableItemBackground"
+                android:src="@drawable/ic_repeat_one_off"
+                android:contentDescription=""
+                android:scaleType="centerInside"
+                android:padding="0dp"
+                app:tint="@color/white" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

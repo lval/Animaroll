@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <alpha
+        android:duration="@integer/anim_obj_out"
+        android:fromAlpha="1"
+        android:toAlpha="0" />
+
+    <rotate
+        android:duration="@integer/anim_obj_out"
+        android:fromDegrees="0"
+        android:toDegrees="-50"
+        android:pivotX="50%"
+        android:pivotY="50%" />
+
+</set>

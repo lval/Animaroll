@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SlideShowTheme" parent="@style/Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:colorControlNormal">@color/white</item>
+
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+
+        <item name="android:dialogTheme">@style/SlideShowTheme.Dialog</item>
+    </style>
+
+    <style name="SlideShowTheme.Dialog" parent="Theme.MaterialComponents.Dialog">
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:background">@color/background</item>
+        <item name="android:windowMinWidthMajor">100%</item>
+        <item name="android:windowMinWidthMinor">100%</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
+
+</resources>
