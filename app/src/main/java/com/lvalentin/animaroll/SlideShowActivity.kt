@@ -95,7 +95,6 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
 
     private var prefMediaType: Int = 1
     private var prefScale: Int = 1
-    private var prefTransition: Int = 3
     private var prefDuration: Long = 15
     private var prefDirMedia: String = ""
     private var prefDirMusic: String = ""
@@ -210,8 +209,9 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
         prefMediaType = mediaTypeString?.toIntOrNull() ?: prefMediaType
         val scaleString = preferences.getString(getString(R.string.pfk_media_scale), prefScale.toString())
         prefScale = scaleString?.toIntOrNull() ?: prefScale
-        val transitionString = preferences.getString(getString(R.string.pfk_media_transition), prefTransition.toString())
-        prefTransition = transitionString?.toIntOrNull() ?: prefTransition
+        val prefTransitionDefault: Int = R.integer.pref_media_transition_default
+        val transitionString = preferences.getString(getString(R.string.pfk_media_transition), prefTransitionDefault.toString())
+        val prefTransition = transitionString?.toIntOrNull() ?: prefTransitionDefault
         val durationString = preferences.getString(getString(R.string.pfk_img_duration), prefDuration.toString())
         prefDuration = durationString?.toLongOrNull()?.times(1000) ?: (prefDuration * 1000)
         prefDirMedia = preferences.getString(getString(R.string.pfk_dir_media), "") ?: ""
@@ -404,12 +404,6 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
                 "animPrevOut" to R.anim.rotate_prev_out,
                 "animPrevIn" to R.anim.rotate_prev
             )
-            Enums.PrefTransition.FADE.id -> mapOf(
-                "animNextOut" to R.anim.fade_out,
-                "animNextIn" to R.anim.fade_in,
-                "animPrevOut" to R.anim.fade_out,
-                "animPrevIn" to R.anim.fade_in
-            )
             else -> mapOf(
                 "animNextOut" to R.anim.fade_out,
                 "animNextIn" to R.anim.fade_in,
@@ -422,7 +416,7 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
     private fun showMedia(isPrev: Boolean = false) {
         disableInputs = true
         timerImage?.cancel()
-        mediaService?.reset()
+//        mediaService?.reset()
 
         if (adService.isAdReady()) {
             adService.showAd()
@@ -472,6 +466,10 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
             else -> imageView.startAnimation(animOut)
         }
 
+//        if (mediaService != null) {
+//            mediaService?.stop()
+//        }
+
         if (curContentType == Enums.MediaType.IMAGE) {
             handleImageMedia(uri, animOut)
         } else if (curContentType == Enums.MediaType.VIDEO) {
@@ -493,6 +491,7 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
                     imageView.visibility = View.INVISIBLE
                     textureView.visibility = View.INVISIBLE
                     textureView.alpha = 0F
+                    mediaService?.reset()
                     glide.clear(imageView)
                     glide.load(uri.path)
                         .listener(object: RequestListener<Drawable> {
@@ -556,6 +555,7 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
                     imageView.visibility = View.INVISIBLE
                     textureView.visibility = View.INVISIBLE
                     textureView.alpha = 0F
+                    mediaService?.reset()
                     mediaService?.prepare(uri.path!!)
                     mediaService?.onVideoPreparedListener = this@SlideShowActivity
                 }

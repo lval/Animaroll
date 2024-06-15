@@ -7,7 +7,7 @@ object Constant {
     const val FOLDER_LIMIT = 10
     const val FOLDER_DELIMITER = "|"
 
-    const val MUSIC_FADE_DURATION = 800
+    const val MUSIC_FADE_DURATION = 1650
     const val MUSIC_FADE_INTERVAL = 75L
 
     const val AD_TIMER = 120L.times(1000)

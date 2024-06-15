@@ -82,8 +82,9 @@
             android:theme="@style/AppTheme" />-->
 
         <receiver
-            android:name=".BroadcastReceiver"
-            android:exported="false">
+            android:name=".MyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>

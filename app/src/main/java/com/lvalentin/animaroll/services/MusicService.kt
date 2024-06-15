@@ -36,13 +36,7 @@ class MusicService(private val context: Context, private val songList: List<Uri>
                 musicPlayer?.setOnCompletionListener {
                     next()
                 }
-            } catch (e: IllegalArgumentException) {
-                e.printStackTrace()
-            } catch (e: SecurityException) {
-                e.printStackTrace()
-            } catch (e: IllegalStateException) {
-                e.printStackTrace()
-            } catch (e: IOException) {
+            } catch (e: Exception) {
                 e.printStackTrace()
             }
         }

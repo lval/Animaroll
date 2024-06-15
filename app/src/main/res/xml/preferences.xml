@@ -57,7 +57,7 @@
             app:iconSpaceReserved="false" />
 
         <ListPreference
-            android:defaultValue="1"
+            android:defaultValue="@integer/pref_media_transition_default"
             android:dialogTitle="@string/transition_title"
             android:entries="@array/pref_transition"
             android:entryValues="@array/pref_transition_val"

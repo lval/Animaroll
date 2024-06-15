@@ -66,17 +66,17 @@ class MediaService(
     }
 
     fun reset() {
-        if (videoPlayer != null) {
-            videoPlayer?.stop()
-            videoPlayer?.reset()
-        }
+        videoPlayer?.stop()
+        videoPlayer?.reset()
+    }
+
+    fun stop() {
+        videoPlayer?.stop()
     }
 
     fun release() {
-        if (videoPlayer != null) {
-            videoPlayer?.stop()
-            videoPlayer?.release()
-        }
+        videoPlayer?.stop()
+        videoPlayer?.release()
         videoPlayer = null
     }
 

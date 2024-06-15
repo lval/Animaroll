@@ -1,4 +1,6 @@
 <resources>
+    <integer name="pref_media_transition_default">3</integer>
+
     <integer name="anim_obj_in">280</integer>
     <integer name="anim_obj_out">230</integer>
 </resources>

@@ -20,8 +20,11 @@
 #-keepattributes SourceFile, LineNumberTable
 #-keepattributes LocalVariableTable, LocalVariableTypeTable
 
-# Uncomment if using annotations to keep them.
--keepattributes *Annotation*, Signature, InnerClasses, EnclosingMethod
+# Keep safe from obfuscation
+-keepattributes *Annotation*
+-keepattributes Signature
+-keepattributes InnerClasses
+-keepattributes EnclosingMethod
 #-keepattributes Exception
 
 # Hide the original source file name
@@ -101,22 +104,31 @@
 #    public static <fields>;
 #}
 
-# Keep classes that are referenced on the AndroidManifest
+# General Android rules
+-keep public class * extends android.app.Activity
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep public class * extends android.content.ContentProvider
 #-keep public class * extends android.app.Activity
 #-keep public class * extends android.app.Application
 #-keep public class * extends android.app.Service
 #-keep public class * extends android.content.BroadcastReceiver
 #-keep public class * extends android.content.ContentProvider
 #-keep public class com.android.vending.licensing.ILicensingService
+-keepclassmembers class * extends android.content.BroadcastReceiver {
+    public void onReceive(android.content.Context, android.content.Intent);
+}
 
 # Ensure the main application class is kept
 #-keep class * extends android.content.Context { *; }
 #-keep class * extends android.app.Application { *; }
 
 -keep class com.lvalentin.animaroll.** { *; }
--keep class com.lvalentin.animaroll.R$layout { *; }
--keep class com.lvalentin.animaroll.R$id { *; }
--keep class com.lvalentin.animaroll.R$string { *; }
+#-keep class com.lvalentin.animaroll.MainActivity {*;}
+#-keep class com.lvalentin.animaroll.MyBroadcastReceiver {*;}
+#-keep class com.lvalentin.animaroll.MainActivity {*;}
+#-keep class com.lvalentin.animaroll.BroadcastReceiver {*;}
+-keep class com.lvalentin.animaroll.R { *; }
 
 # ----------------------------------
 # Security Crypto

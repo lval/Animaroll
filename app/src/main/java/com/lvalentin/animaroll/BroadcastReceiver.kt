@@ -6,7 +6,7 @@ import android.content.Intent
 import androidx.preference.PreferenceManager
 
 
-class BroadcastReceiver: BroadcastReceiver() {
+class MyBroadcastReceiver: BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
         val preferences = PreferenceManager.getDefaultSharedPreferences(context)
         val startup = preferences.getBoolean(context.resources.getString(R.string.pfk_boot), false)
