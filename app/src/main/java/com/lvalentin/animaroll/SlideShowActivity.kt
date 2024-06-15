@@ -466,9 +466,7 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
             else -> imageView.startAnimation(animOut)
         }
 
-//        if (mediaService != null) {
-//            mediaService?.stop()
-//        }
+        mediaService?.pause()
 
         if (curContentType == Enums.MediaType.IMAGE) {
             handleImageMedia(uri, animOut)

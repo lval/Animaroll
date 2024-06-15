@@ -21,7 +21,10 @@ class MusicService(private val context: Context, private val songList: List<Uri>
 
     init {
         PreferenceManager.init(context)
+        initializePlayer()
+    }
 
+    private fun initializePlayer() {
         if (musicPlayer == null && songList.isNotEmpty()) {
             try {
                 val storedTrack = loadStoredTrack()
@@ -54,44 +57,46 @@ class MusicService(private val context: Context, private val songList: List<Uri>
     }
 
     fun play() {
-        if (songList.isNotEmpty() && songIx >= 0 && songIx < songList.size) {
-            musicPlayer?.reset()
-            musicPlayer?.setDataSource(context, songList[songIx])
-            musicPlayer?.prepare()
-
-//            val audioSessionId = musicPlayer?.audioSessionId
-//            val loudnessEnhancer = LoudnessEnhancer(audioSessionId!!)
-//            loudnessEnhancer.setTargetGain(1000)
-//            loudnessEnhancer.enabled = true
-
-            musicPlayer?.start()
+        if (songList.isNotEmpty() && songIx in songList.indices) {
+            try {
+                musicPlayer?.reset()
+                musicPlayer?.setDataSource(context, songList[songIx])
+                musicPlayer?.prepare()
+                musicPlayer?.start()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
         }
     }
 
     fun resume() {
-        if (songList.isNotEmpty() && musicPlayer?.isPlaying == false) {
-            musicPlayer?.setVolume(0f, 0f)
-            musicPlayer?.start()
+        musicPlayer?.let { player ->
+            if (songList.isNotEmpty() && !player.isPlaying) {
+                player.setVolume(0f, 0f)
+                player.start()
 
-            val maxVolume = 1.0f
-            var volume = 0.0f
-            musicHandler.post(object: Runnable {
-                override fun run() {
-                    if (volume < maxVolume) {
-                        volume += maxVolume / (Constant.MUSIC_FADE_DURATION / 100).toFloat()
-                        musicPlayer?.setVolume(volume, volume)
-                        musicHandler.postDelayed(this, Constant.MUSIC_FADE_INTERVAL)
-                    } else {
-                        musicPlayer?.setVolume(maxVolume, maxVolume)
+                val maxVolume = 1.0f
+                var volume = 0.0f
+                musicHandler.post(object : Runnable {
+                    override fun run() {
+                        if (volume < maxVolume) {
+                            volume += maxVolume / (Constant.MUSIC_FADE_DURATION / 100).toFloat()
+                            player.setVolume(volume, volume)
+                            musicHandler.postDelayed(this, Constant.MUSIC_FADE_INTERVAL)
+                        } else {
+                            player.setVolume(maxVolume, maxVolume)
+                        }
                     }
-                }
-            })
+                })
+            }
         }
     }
 
     fun pause() {
-        if (songList.isNotEmpty() && musicPlayer?.isPlaying == true) {
-            musicPlayer?.pause()
+        musicPlayer?.let { player ->
+            if (songList.isNotEmpty() && player.isPlaying) {
+                player.pause()
+            }
         }
     }
 

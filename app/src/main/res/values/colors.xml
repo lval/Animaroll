@@ -21,7 +21,7 @@
     <color name="btn_primary">#FFF9F9F9</color>
     <color name="btn_primary_ripple">#53BAE8</color>
     <color name="btn_primary_border">#3E9AF4</color>
-    <color name="btn_secondary">#BA580D</color>
+    <color name="btn_secondary">#0277BD</color>
     <color name="btn_secondary_ripple">#0B93E4</color>
     <color name="btn_tertiary">#EFCAAE</color>
     <color name="btn_tertiary_ripple">#EFCAAE</color>
