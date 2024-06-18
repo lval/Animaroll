@@ -7,6 +7,12 @@ object Enums {
         VIDEO,
     }
 
+    enum class PrefBackground(val id: Int) {
+        BLUR(1),
+        BLACK(2),
+        WHITE(3),
+    }
+
     enum class PrefDisplayTime(val id: Int) {
         OFF(1),
         TOP_END(2),

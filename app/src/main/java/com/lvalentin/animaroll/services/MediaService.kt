@@ -1,5 +1,6 @@
 package com.lvalentin.animaroll.services
 
+import android.graphics.Bitmap
 import android.graphics.SurfaceTexture
 import android.media.MediaMetadataRetriever
 import android.media.MediaPlayer
@@ -26,7 +27,8 @@ class MediaService(private val parent: SlideShowActivity, textureView: TextureVi
     fun prepare(uri: String) {
         videoPlayer?.reset()
         try {
-            videoPlayer?.setDataSource(uri)
+//            videoPlayer?.setDataSource(uri)
+            videoPlayer?.setDataSource(parent, Uri.parse(uri))
             videoPlayer?.prepareAsync()
         } catch (e: Exception) {
             e.printStackTrace()
@@ -42,6 +44,19 @@ class MediaService(private val parent: SlideShowActivity, textureView: TextureVi
         } catch (e: Exception) {
             e.printStackTrace()
             false
+        } finally {
+            retriever.release()
+        }
+    }
+
+    fun captureFrame(videoUri: Uri, timeUs: Long = 1000000L): Bitmap? {
+        val retriever = MediaMetadataRetriever()
+        return try {
+            retriever.setDataSource(parent, videoUri)
+            retriever.getFrameAtTime(timeUs)
+        } catch (e: Exception) {
+            e.printStackTrace()
+            null
         } finally {
             retriever.release()
         }

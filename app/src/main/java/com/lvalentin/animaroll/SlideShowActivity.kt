@@ -5,6 +5,9 @@ import android.app.Dialog
 import android.app.UiModeManager
 import android.content.res.Configuration
 import android.content.res.Resources
+import android.graphics.Bitmap
+import android.graphics.RenderEffect
+import android.graphics.Shader
 import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
@@ -36,6 +39,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.appcompat.widget.TooltipCompat
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.core.os.HandlerCompat
 import androidx.core.text.HtmlCompat
@@ -69,6 +73,7 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
     private lateinit var adService: AdService
     private lateinit var glide: RequestManager
     private lateinit var imageView: ImageView
+    private lateinit var imageViewBlur: ImageView
     private lateinit var textureView: TextureView
     private lateinit var animIn: Animation
 
@@ -87,12 +92,14 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
     private var disableInputs: Boolean = false
     private var isMusicRepeat: Boolean = false
     private var hasMediaAudio: Boolean = false
+    private var isBkgBlurred: Boolean = false
     private var timerImage: CountDownTimer? = null
     private var isSysBarsVisible = false
     private var isTelevision = false
     private var screenX: Int = 0
     private var screenY: Int = 0
 
+    private var prefBackground: Int = 1
     private var prefMediaType: Int = 1
     private var prefScale: Int = 1
     private var prefDuration: Long = 15
@@ -205,6 +212,10 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
         hideSystemBars()
 
         val preferences = PreferenceManager.getPreferences()
+
+        val backgroundString = preferences.getString(getString(R.string.pfk_slideshow_bkg), prefBackground.toString())
+        prefBackground = backgroundString?.toIntOrNull() ?: prefBackground
+
         val mediaTypeString = preferences.getString(getString(R.string.pfk_media_type), prefMediaType.toString())
         prefMediaType = mediaTypeString?.toIntOrNull() ?: prefMediaType
         val scaleString = preferences.getString(getString(R.string.pfk_media_scale), prefScale.toString())
@@ -220,6 +231,17 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
         val prefTime = timeString?.toIntOrNull() ?: 1
         val lblTime: TextClock = findViewById(R.id.lbl_time)
         lblMsg = findViewById(R.id.err_msg)
+
+        isBkgBlurred = prefBackground == Enums.PrefBackground.BLUR.id
+        val container = findViewById<CoordinatorLayout>(R.id.container_slideshow)
+        when (prefBackground) {
+            Enums.PrefBackground.WHITE.id -> {
+                container.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+            }
+            else -> {
+                container.setBackgroundColor(ContextCompat.getColor(this, R.color.black))
+            }
+        }
 
         isRandomTransition = prefTransition == Enums.PrefTransition.RANDOM.id
         if(!isRandomTransition) {
@@ -308,7 +330,6 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
             }
         })
 
-        val container = findViewById<CoordinatorLayout>(R.id.container_slideshow)
         container.setOnTouchListener { _, event ->
             gestureDetector.onTouchEvent(event)
         }
@@ -345,6 +366,7 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
         }
 
         textureView = findViewById(R.id.texture_view)
+        imageViewBlur = findViewById(R.id.bkg_blur)
         imageView = findViewById(R.id.image_view)
         imageView.scaleType = when (prefScale) {
             Enums.PrefMediaFit.COVER.id -> { ImageView.ScaleType.CENTER_CROP }
@@ -416,7 +438,7 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
     private fun showMedia(isPrev: Boolean = false) {
         disableInputs = true
         timerImage?.cancel()
-//        mediaService?.reset()
+        //mediaService?.reset()
 
         if (adService.isAdReady()) {
             adService.showAd()
@@ -475,6 +497,51 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
         }
     }
 
+    private fun applyBlurBkg() {
+        val radius = 155f
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val blurEffect = RenderEffect.createBlurEffect(radius, radius, Shader.TileMode.MIRROR)
+            imageViewBlur.setRenderEffect(blurEffect)
+        }
+    }
+
+    private fun imageBkgBlurOut() {
+        if (isBkgBlurred) {
+            val animOutBlur: Animation = AnimationUtils.loadAnimation(this, R.anim.fade_out).apply { startOffset = 2 }
+            imageViewBlur.startAnimation(animOutBlur)
+            animOutBlur.setAnimationListener(object: Animation.AnimationListener {
+                override fun onAnimationRepeat(animation: Animation?) {}
+                override fun onAnimationStart(animation: Animation) {}
+                override fun onAnimationEnd(animation: Animation) {
+                    imageViewBlur.visibility = View.INVISIBLE
+                }
+            })
+        }
+    }
+
+    private fun imageBkgBlurIn(path: String, frameBitmap: Bitmap? = null) {
+        if (isBkgBlurred) {
+            val animInBlur: Animation =
+                AnimationUtils.loadAnimation(this, R.anim.fade_in).apply { startOffset = 2 }
+
+            glide.clear(imageViewBlur)
+            glide.load(if (path.isNotEmpty()) path else frameBitmap)
+                .into(imageViewBlur)
+
+            applyBlurBkg()
+
+            imageViewBlur.startAnimation(animInBlur)
+            animInBlur.setAnimationListener(object : Animation.AnimationListener {
+                override fun onAnimationRepeat(animation: Animation?) {}
+                override fun onAnimationStart(animation: Animation) {
+                    imageViewBlur.visibility = View.VISIBLE
+                }
+
+                override fun onAnimationEnd(animation: Animation) {}
+            })
+        }
+    }
+
     @Synchronized
     private fun handleImageMedia(uri: Uri, animOut: Animation) {
         runOnUiThread {
@@ -484,15 +551,20 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
 
             animOut.setAnimationListener(object: Animation.AnimationListener {
                 override fun onAnimationRepeat(animation: Animation?) {}
-                override fun onAnimationStart(animation: Animation) {}
+                override fun onAnimationStart(animation: Animation) {
+                    imageBkgBlurOut()
+                }
                 override fun onAnimationEnd(animation: Animation) {
                     imageView.visibility = View.INVISIBLE
                     textureView.visibility = View.INVISIBLE
                     textureView.alpha = 0F
                     mediaService?.reset()
+
+                    imageBkgBlurIn(uri.path!!)
+
                     glide.clear(imageView)
                     glide.load(uri.path)
-                        .listener(object: RequestListener<Drawable> {
+                         .listener(object: RequestListener<Drawable> {
                             override fun onLoadFailed(
                                 e: GlideException?,
                                 model: Any?,
@@ -548,12 +620,17 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
 
             animOut.setAnimationListener(object: Animation.AnimationListener {
                 override fun onAnimationRepeat(animation: Animation?) {}
-                override fun onAnimationStart(animation: Animation) {}
+                override fun onAnimationStart(animation: Animation) {
+                    imageBkgBlurOut()
+                }
                 override fun onAnimationEnd(animation: Animation) {
                     imageView.visibility = View.INVISIBLE
                     textureView.visibility = View.INVISIBLE
                     textureView.alpha = 0F
                     mediaService?.reset()
+                    mediaService?.captureFrame(uri)?.let { frameBitmap ->
+                        imageBkgBlurIn("", frameBitmap)
+                    }
                     mediaService?.prepare(uri.path!!)
                     mediaService?.onVideoPreparedListener = this@SlideShowActivity
                 }

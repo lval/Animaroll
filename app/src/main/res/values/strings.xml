@@ -72,10 +72,11 @@
     <string name="boot_summary">Launch when android start</string>
     <string name="startup_title">Auto-start</string>
     <string name="startup_summary">Start slideshow when app start</string>
+    <string name="slideshow_bkg_title">Background</string>
     <string name="time_title">Display time</string>
     <string name="mediatype_title">Media type</string>
     <string name="time_summary">Show current time in the slideshow</string>
-    <string name="scale_title">Adjustment</string>
+    <string name="scale_title">Media Adjustment</string>
     <string name="scale_summary">Resizes media to fit within the available space</string>
     <string name="transition_title">Transition</string>
     <string name="transition_summary">Visual effects between media</string>

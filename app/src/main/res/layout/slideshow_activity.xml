@@ -5,9 +5,17 @@
     android:id="@+id/container_slideshow"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
     android:focusable="true"
     android:keepScreenOn="true">
+
+    <ImageView
+        android:id="@+id/bkg_blur"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:scaleType="centerCrop"
+        android:focusable="false"
+        tools:ignore="ContentDescription" />
 
     <ImageView
         android:id="@+id/image_view"
@@ -30,10 +38,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerVertical="true"
-        android:layout_marginStart="35sp"
-        android:layout_marginTop="15sp"
-        android:layout_marginEnd="35sp"
-        android:layout_marginBottom="15sp"
+        android:layout_marginStart="38sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginEnd="38sp"
+        android:layout_marginBottom="20sp"
         android:focusable="false"
         android:format12Hour="h:mm"
         android:padding="4sp"

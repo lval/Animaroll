@@ -75,10 +75,11 @@
     <string name="boot_summary">Ejecutar cuando se inicia android</string>
     <string name="startup_title">Inicio automático</string>
     <string name="startup_summary">Iniciar diapositivas al iniciar la aplicación</string>
+    <string name="slideshow_bkg_title">Fondo</string>
     <string name="time_title">Mostrar hora</string>
     <string name="mediatype_title">Tipo de medios</string>
     <string name="time_summary">Mostrar la hora actual en diapositivas</string>
-    <string name="scale_title">Ajustar medios</string>
+    <string name="scale_title">Ajuste de medios</string>
     <string name="scale_summary">Cambia el tamaño de medios para que quepan en el espacio disponible</string>
     <string name="transition_title">Transición</string>
     <string name="transition_summary">Efectos visuales entre medios</string>

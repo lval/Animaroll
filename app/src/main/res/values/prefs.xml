@@ -8,6 +8,7 @@
     <string name="pfk_startup" translatable="false">pfk_startup</string>
     <string name="pfk_dir_media" translatable="false">pfk_dir_media</string>
     <string name="pfk_dir_music" translatable="false">pfk_dir_music</string>
+    <string name="pfk_slideshow_bkg" translatable="false">pfk_slideshow_bkg</string>
     <string name="pfk_display_time" translatable="false">pfk_display_time</string>
     <string name="pfk_img_duration" translatable="false">pfk_img_duration</string>
     <string name="pfk_media_type" translatable="false">pfk_media_type</string>
