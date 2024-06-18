@@ -19,11 +19,15 @@ import com.google.android.gms.ads.AdListener
 import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.RequestConfiguration
 import com.google.android.gms.ads.VideoController
 import com.google.android.gms.ads.VideoOptions
+import com.google.android.gms.ads.identifier.AdvertisingIdClient
 import com.google.android.gms.ads.nativead.NativeAd
 import com.google.android.gms.ads.nativead.NativeAdOptions
 import com.google.android.gms.ads.nativead.NativeAdView
+import com.lvalentin.animaroll.BuildConfig
 import com.lvalentin.animaroll.R
 import com.lvalentin.animaroll.common.Constant
 
@@ -101,7 +105,7 @@ class AdService(private val context: Context, private val adLayout: View, privat
             .setVideoOptions(videoOptions)
             .build()
 
-        val adLoader = AdLoader.Builder(context, context.getString(R.string.admob_native_unit_id))
+        val adLoader = AdLoader.Builder(context, context.getString(R.string.admob_unit_id))
             .forNativeAd { nativeAd: NativeAd ->
                 if (currentNativeAd != null) {
                     currentNativeAd?.destroy()
@@ -199,6 +203,20 @@ class AdService(private val context: Context, private val adLayout: View, privat
             .withNativeAdOptions(adOptions)
             .build()
 
+        if (BuildConfig.DEBUG) {
+            Thread {
+                try {
+                    val adInfo = AdvertisingIdClient.getAdvertisingIdInfo(context.applicationContext)
+                    Log.d(Constant.TAG, "Advertising ID: $adInfo.id")
+                    val testDeviceIds = listOf(adInfo.id)
+                    val configuration = RequestConfiguration.Builder().setTestDeviceIds(testDeviceIds).build()
+                    MobileAds.setRequestConfiguration(configuration)
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+            }.start()
+        }
+
         adLoader.loadAd(AdRequest.Builder().build())
     }
 
@@ -276,6 +294,18 @@ class AdService(private val context: Context, private val adLayout: View, privat
         }
 
         adView.setNativeAd(nativeAd)
+    }
+
+    private fun getTestDeviceId(): String {
+        try {
+            val adInfo = AdvertisingIdClient.getAdvertisingIdInfo(context.applicationContext)
+            val id = adInfo.id
+            Log.d(Constant.TAG, "Advertising ID: $id")
+            return id!!
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return ""
+        }
     }
 
     private fun displayOfflinePlaceholder() {

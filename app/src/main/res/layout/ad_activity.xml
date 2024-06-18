@@ -22,7 +22,7 @@
             android:id="@+id/ad_online_placeholder"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:adUnitId="@string/admob_native_unit_id"
+            app:adUnitId="@string/admob_unit_id"
             tools:visibility="invisible">
 
             <LinearLayout

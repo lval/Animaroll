@@ -56,7 +56,7 @@ class MainActivity: AppCompatActivity(), BillingUpdatesListener {
                 bottomNavView.menu.getItem(i).setCheckable(false)
             }
             bottomNavView.clearFocus()
-            bottomNavView.setOnItemSelectedListener   { item ->
+            bottomNavView.setOnItemSelectedListener { item ->
                 when (item.itemId) {
                     R.id.nav_settings -> {
                         val intent = Intent(this, SettingsActivity::class.java)
