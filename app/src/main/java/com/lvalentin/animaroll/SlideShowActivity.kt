@@ -507,7 +507,7 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
 
     private fun imageBkgBlurOut() {
         if (isBkgBlurred) {
-            val animOutBlur: Animation = AnimationUtils.loadAnimation(this, R.anim.fade_out).apply { startOffset = 2 }
+            val animOutBlur: Animation = AnimationUtils.loadAnimation(this, R.anim.fade_blur_out).apply { startOffset = 2 }
             imageViewBlur.startAnimation(animOutBlur)
             animOutBlur.setAnimationListener(object: Animation.AnimationListener {
                 override fun onAnimationRepeat(animation: Animation?) {}
@@ -522,7 +522,7 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
     private fun imageBkgBlurIn(path: String, frameBitmap: Bitmap? = null) {
         if (isBkgBlurred) {
             val animInBlur: Animation =
-                AnimationUtils.loadAnimation(this, R.anim.fade_in).apply { startOffset = 2 }
+                AnimationUtils.loadAnimation(this, R.anim.fade_blur_in).apply { startOffset = 2 }
 
             glide.clear(imageViewBlur)
             glide.load(if (path.isNotEmpty()) path else frameBitmap)
