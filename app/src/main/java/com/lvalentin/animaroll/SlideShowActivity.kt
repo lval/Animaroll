@@ -99,7 +99,7 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
     private var screenX: Int = 0
     private var screenY: Int = 0
 
-    private var prefBackground: Int = 1
+    private var prefBackground: Int = 2
     private var prefMediaType: Int = 1
     private var prefScale: Int = 1
     private var prefDuration: Long = 15
@@ -211,32 +211,35 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
 
         hideSystemBars()
 
-        val preferences = PreferenceManager.getPreferences()
-
-        val backgroundString = preferences.getString(getString(R.string.pfk_slideshow_bkg), prefBackground.toString())
-        prefBackground = backgroundString?.toIntOrNull() ?: prefBackground
-
-        val mediaTypeString = preferences.getString(getString(R.string.pfk_media_type), prefMediaType.toString())
-        prefMediaType = mediaTypeString?.toIntOrNull() ?: prefMediaType
-        val scaleString = preferences.getString(getString(R.string.pfk_media_scale), prefScale.toString())
-        prefScale = scaleString?.toIntOrNull() ?: prefScale
-        val prefTransitionDefault: Int = R.integer.pref_media_transition_default
-        val transitionString = preferences.getString(getString(R.string.pfk_media_transition), prefTransitionDefault.toString())
-        val prefTransition = transitionString?.toIntOrNull() ?: prefTransitionDefault
-        val durationString = preferences.getString(getString(R.string.pfk_img_duration), prefDuration.toString())
-        prefDuration = durationString?.toLongOrNull()?.times(1000) ?: (prefDuration * 1000)
-        prefDirMedia = preferences.getString(getString(R.string.pfk_dir_media), "") ?: ""
-        prefDirMusic = preferences.getString(getString(R.string.pfk_dir_music), "") ?: ""
-        val timeString = preferences.getString(getString(R.string.pfk_display_time), "1")
-        val prefTime = timeString?.toIntOrNull() ?: 1
+        prefBackground = PreferenceManager.getIntPreference(R.string.pfk_slideshow_bkg, prefBackground, this)
+        prefMediaType = PreferenceManager.getIntPreference(R.string.pfk_media_type, prefMediaType, this)
+        prefScale = PreferenceManager.getIntPreference(R.string.pfk_media_scale, prefScale, this)
+        val prefTransitionDefault = resources.getInteger(R.integer.pref_media_transition_default)
+        val prefTransition = PreferenceManager.getIntPreference(R.string.pfk_media_transition, prefTransitionDefault, this)
+        prefDuration = PreferenceManager.getLongPreference(R.string.pfk_img_duration, prefDuration, this) * 1000
+        prefDirMedia = PreferenceManager.getStringPreference(R.string.pfk_dir_media, "", this)
+        prefDirMusic = PreferenceManager.getStringPreference(R.string.pfk_dir_music, "", this)
+        val prefTime = PreferenceManager.getIntPreference(R.string.pfk_display_time, 1, this)
         val lblTime: TextClock = findViewById(R.id.lbl_time)
         lblMsg = findViewById(R.id.err_msg)
 
         isBkgBlurred = prefBackground == Enums.PrefBackground.BLUR.id
         val container = findViewById<CoordinatorLayout>(R.id.container_slideshow)
         when (prefBackground) {
-            Enums.PrefBackground.WHITE.id -> {
-                container.setBackgroundColor(ContextCompat.getColor(this, R.color.white))
+            Enums.PrefBackground.BLUE.id -> {
+                container.setBackgroundColor(ContextCompat.getColor(this, R.color.blue))
+            }
+            Enums.PrefBackground.RED.id -> {
+                container.setBackgroundColor(ContextCompat.getColor(this, R.color.red))
+            }
+            Enums.PrefBackground.GREEN.id -> {
+                container.setBackgroundColor(ContextCompat.getColor(this, R.color.green))
+            }
+            Enums.PrefBackground.ORANGE.id -> {
+                container.setBackgroundColor(ContextCompat.getColor(this, R.color.orange))
+            }
+            Enums.PrefBackground.PURPLE.id -> {
+                container.setBackgroundColor(ContextCompat.getColor(this, R.color.purple))
             }
             else -> {
                 container.setBackgroundColor(ContextCompat.getColor(this, R.color.black))

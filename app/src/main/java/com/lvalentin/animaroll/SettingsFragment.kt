@@ -4,7 +4,9 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
+import androidx.preference.ListPreference
 import androidx.preference.Preference
 import androidx.preference.PreferenceFragmentCompat
 import java.util.Calendar
@@ -24,6 +26,28 @@ class SettingsFragment: PreferenceFragmentCompat(),
 
         val sharedPreferences = preferenceManager.sharedPreferences
         sharedPreferences?.registerOnSharedPreferenceChangeListener(this)
+
+        findPreference<ListPreference>("pfk_slideshow_bkg")?.let {
+            val defaultValue: String
+            val currentValue = sharedPreferences?.getString(it.key, null)
+            if (currentValue == null) {
+                defaultValue = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                    "1"
+                } else {
+                    "2"
+                }
+                sharedPreferences?.edit()?.putString(it.key, defaultValue)?.apply()
+                it.value = defaultValue
+            }
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                it.entries = resources.getStringArray(R.array.pref_slideshow_bkg_all)
+                it.entryValues = resources.getStringArray(R.array.pref_slideshow_bkg_all_val)
+            } else {
+                it.entries = resources.getStringArray(R.array.pref_slideshow_bkg)
+                it.entryValues = resources.getStringArray(R.array.pref_slideshow_bkg_val)
+            }
+        }
 
         findPreference<Preference>("app_version")?.let { appVersion ->
             val currentYear = Calendar.getInstance().get(Calendar.YEAR)

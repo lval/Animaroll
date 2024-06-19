@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string-array name="pref_slideshow_bkg">
+    <string-array name="pref_slideshow_bkg_all">
         <item>Blurred</item>
         <item>Black</item>
-        <item>White</item>
+        <item>Blue</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Orange</item>
+        <item>Purple</item>
+    </string-array>
+
+    <string-array name="pref_slideshow_bkg">
+        <item>Black</item>
+        <item>Blue</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Orange</item>
+        <item>Purple</item>
     </string-array>
 
     <string-array name="pref_time">

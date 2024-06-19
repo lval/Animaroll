@@ -27,11 +27,8 @@
             app:iconSpaceReserved="false" />
 
         <ListPreference
-            android:defaultValue="1"
-            android:dialogTitle="@string/slideshow_bkg_title"
-            android:entries="@array/pref_slideshow_bkg"
-            android:entryValues="@array/pref_slideshow_bkg_val"
             android:key="@string/pfk_slideshow_bkg"
+            android:dialogTitle="@string/slideshow_bkg_title"
             android:summary="%s"
             android:title="@string/slideshow_bkg_title"
             app:iconSpaceReserved="false" />

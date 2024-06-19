@@ -67,7 +67,7 @@
     </plurals>
 
     <!--  Settings  -->
-    <string name="title_setting">Configuración</string>
+    <string name="title_setting">Ajustes</string>
     <string name="category_general">General</string>
     <string name="category_media">Diapositivas</string>
     <string name="category_about">Acerca</string>
@@ -85,13 +85,12 @@
     <string name="transition_summary">Efectos visuales entre medios</string>
     <string name="duration_title">Duración de imágenes</string>
     <string name="duration_summary">Con qué frecuencia cambian las imágenes %s</string>
-    <string name="action_settings">Configuración</string>
     <string name="app_rate_title">Califica la aplicación</string>
     <string name="app_rate_summary">¿Te gusta la aplicación? Comparte tu opinión.</string>
     <string name="app_share_title">Comparte la aplicación</string>
     <string name="app_share_summary">¡Comparte esta aplicación con tus amigos!</string>
     <string name="app_share_msg">He estado usando %1$s. Convierte tus fotos y vídeos en pósters digitales. Descárgatelo aquí: %2$s</string>
-    <string name="app_website_title">Página web</string>
-    <string name="app_copy_summary">&#169; %1$s lvalentin</string>
+    <string name="app_website_title">Sitio web</string>
+    <string name="app_copy_summary">&#169; %1$d lvalentin</string>
 
 </resources>

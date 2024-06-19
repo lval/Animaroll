@@ -82,13 +82,12 @@
     <string name="transition_summary">Visual effects between media</string>
     <string name="duration_title">Image duration</string>
     <string name="duration_summary">How often images change %s</string>
-    <string name="action_settings">Settings</string>
     <string name="app_rate_title">Rate the app</string>
     <string name="app_rate_summary">Like the app? Please share your appreciation!</string>
     <string name="app_share_title">Share the app</string>
     <string name="app_share_summary">Share this app with your friends!</string>
     <string name="app_share_msg">I\’ve been using %1$s. Turn your photos &amp; videos into digital posters. Download it here: %2$s</string>
     <string name="app_website_title">Website</string>
-    <string name="app_copy_summary">&#169; %1$s lvalentin</string>
+    <string name="app_copy_summary">&#169; %1$d lvalentin</string>
 
 </resources>

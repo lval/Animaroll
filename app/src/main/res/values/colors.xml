@@ -8,6 +8,11 @@
     <color name="tertiary">#BA580D</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFF9F9F9</color>
+    <color name="red">#d50011</color>
+    <color name="green">#107c10</color>
+    <color name="blue">#00439c</color>
+    <color name="orange">#dc8738</color>
+    <color name="purple">#8243a6</color>
     <color name="dialog_background">#FFFBFCFF</color>
 
     <color name="text_primary">#FF1B1C1D</color>

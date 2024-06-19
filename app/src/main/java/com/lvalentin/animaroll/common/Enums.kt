@@ -10,7 +10,11 @@ object Enums {
     enum class PrefBackground(val id: Int) {
         BLUR(1),
         BLACK(2),
-        WHITE(3),
+        BLUE(3),
+        RED(4),
+        GREEN(5),
+        ORANGE(6),
+        PURPLE(7),
     }
 
     enum class PrefDisplayTime(val id: Int) {
