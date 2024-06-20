@@ -10,7 +10,7 @@
 
     <!--  Main  -->
     <string name="btn_start">Comenzar</string>
-    <string name="btn_settings">Configuración</string>
+    <string name="btn_settings">Ajustes</string>
     <string name="btn_media">Albumes de Medios</string>
     <string name="btn_music">Albumes de Música</string>
     <string name="btn_buy">Eliminar anuncios</string>

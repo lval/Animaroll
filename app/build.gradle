@@ -11,11 +11,9 @@ android {
         applicationId "com.lvalentin.animaroll"
         minSdk 24
         targetSdk 34
-        versionCode 907
-        versionName "0.9.07"
+        versionCode 950
+        versionName "0.9.50"
 
-        renderscriptTargetApi 30
-        renderscriptSupportModeEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
