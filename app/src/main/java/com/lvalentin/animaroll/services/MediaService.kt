@@ -86,6 +86,10 @@ class MediaService(private val parent: SlideShowActivity, textureView: TextureVi
         surface = null
     }
 
+    fun pauseAudio() {
+        videoPlayer?.setVolume(0f, 0f)
+    }
+
     override fun onSurfaceTextureAvailable(surfaceTexture: SurfaceTexture, width: Int, height: Int) {
         if (videoPlayer == null) {
             videoPlayer = MediaPlayer().apply {

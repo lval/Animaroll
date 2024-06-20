@@ -32,9 +32,8 @@ class MediaActivity: AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
         }
 
-        val preferences = PreferenceManager.getPreferences()
-        val prefDirs = preferences.getString(getString(R.string.pfk_dir_media), "")
-        if (!prefDirs.isNullOrEmpty()) {
+        val prefDirs = PreferenceManager.getString(R.string.gpf_dir_media, "", this)
+        if (prefDirs.isNotEmpty()) {
             savedDirIds = ArrayList(prefDirs.split(Constant.FOLDER_DELIMITER))
             val validDirs = getPathsFromBucketIds(this, savedDirIds) as ArrayList<FolderVm>
             if (validDirs.size > 0) {
@@ -69,9 +68,10 @@ class MediaActivity: AppCompatActivity() {
 
             val selDirStr = savedDirIds.distinctBy { it.lowercase() }
                 .joinToString(separator = Constant.FOLDER_DELIMITER, limit = Constant.FOLDER_LIMIT)
-            preferences.edit()
-                .putString(getString(R.string.pfk_dir_media), selDirStr)
-                .apply()
+
+            val editor = PreferenceManager.getEditor()
+            editor.putString(getString(R.string.gpf_dir_media), selDirStr)
+            editor.apply()
         }
         supportActionBar?.subtitle = this.resources.getQuantityString(
             R.plurals.folders_cnt, adapter.itemCount - 1, adapter.itemCount - 1

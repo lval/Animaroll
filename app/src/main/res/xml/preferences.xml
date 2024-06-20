@@ -8,7 +8,7 @@
 
         <SwitchPreference
             android:defaultValue="false"
-            android:key="@string/pfk_boot"
+            android:key="@string/gpf_boot"
             android:summary="@string/boot_summary"
             android:title="@string/boot_title"
             app:iconSpaceReserved="false" />
@@ -21,13 +21,13 @@
 
         <SwitchPreference
             android:defaultValue="false"
-            android:key="@string/pfk_startup"
+            android:key="@string/gpf_startup"
             android:summary="@string/startup_summary"
             android:title="@string/startup_title"
             app:iconSpaceReserved="false" />
 
         <ListPreference
-            android:key="@string/pfk_slideshow_bkg"
+            android:key="@string/gpf_slideshow_bkg"
             android:dialogTitle="@string/slideshow_bkg_title"
             android:summary="%s"
             android:title="@string/slideshow_bkg_title"
@@ -38,7 +38,7 @@
             android:dialogTitle="@string/time_title"
             android:entries="@array/pref_time"
             android:entryValues="@array/pref_time_val"
-            android:key="@string/pfk_display_time"
+            android:key="@string/gpf_display_time"
             android:summary="%s"
             android:title="@string/time_title"
             app:iconSpaceReserved="false" />
@@ -48,7 +48,7 @@
             android:dialogTitle="@string/mediatype_title"
             android:entries="@array/pref_mediatype"
             android:entryValues="@array/pref_mediatype_val"
-            android:key="@string/pfk_media_type"
+            android:key="@string/gpf_media_type"
             android:summary="%s"
             android:title="@string/mediatype_title"
             app:iconSpaceReserved="false" />
@@ -58,7 +58,7 @@
             android:dialogTitle="@string/scale_title"
             android:entries="@array/pref_scale"
             android:entryValues="@array/pref_scale_val"
-            android:key="@string/pfk_media_scale"
+            android:key="@string/gpf_media_scale"
             android:summary="%s"
             android:title="@string/scale_title"
             app:iconSpaceReserved="false" />
@@ -68,7 +68,7 @@
             android:dialogTitle="@string/transition_title"
             android:entries="@array/pref_transition"
             android:entryValues="@array/pref_transition_val"
-            android:key="@string/pfk_media_transition"
+            android:key="@string/gpf_media_transition"
             android:summary="%s"
             android:title="@string/transition_title"
             app:iconSpaceReserved="false" />
@@ -78,9 +78,16 @@
             android:dialogTitle="@string/duration_title"
             android:entries="@array/pref_duration"
             android:entryValues="@array/pref_duration_val"
-            android:key="@string/pfk_img_duration"
+            android:key="@string/gpf_img_duration"
             android:summary="%s"
             android:title="@string/duration_title"
+            app:iconSpaceReserved="false" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/gpf_videos_muted"
+            android:summary="@string/videos_muted_summary"
+            android:title="@string/videos_muted_title"
             app:iconSpaceReserved="false" />
 
     </PreferenceCategory>

@@ -25,13 +25,13 @@ object PurchaseUtils {
     fun storePurchaseState(context: Context, hasNoAds: Boolean) {
         val sharedPreferences = getSharedPreferences(context)
         with(sharedPreferences.edit()) {
-            putBoolean(context.getString(R.string.epfk_no_ads), hasNoAds)
+            putBoolean(context.getString(R.string.epf_no_ads), hasNoAds)
             apply()
         }
     }
 
     fun isNoAdsPurchased(context: Context): Boolean {
         val sharedPreferences = getSharedPreferences(context)
-        return sharedPreferences.getBoolean(context.getString(R.string.epfk_no_ads), false)
+        return sharedPreferences.getBoolean(context.getString(R.string.epf_no_ads), false)
     }
 }

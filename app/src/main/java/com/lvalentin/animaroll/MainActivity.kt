@@ -219,10 +219,9 @@ class MainActivity: AppCompatActivity(), BillingUpdatesListener {
     }
 
     private fun getPreferences() {
-        val preferences = PreferenceManager.getPreferences()
-        prefAutostart = preferences.getBoolean(getString(R.string.pfk_startup), false)
-        prefDirMedia = preferences.getString(getString(R.string.pfk_dir_media), "") ?: ""
-        prefDirMusic = preferences.getString(getString(R.string.pfk_dir_music), "") ?: ""
+        prefAutostart = PreferenceManager.getBoolean(R.string.gpf_startup, false, this)
+        prefDirMedia = PreferenceManager.getString(R.string.gpf_dir_media, "", this)
+        prefDirMusic = PreferenceManager.getString(R.string.gpf_dir_music, "", this)
     }
 
     private fun getMediaCnt(pDirs: String) {

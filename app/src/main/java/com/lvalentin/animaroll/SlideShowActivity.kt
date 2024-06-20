@@ -105,6 +105,7 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
     private var prefDuration: Long = 15
     private var prefDirMedia: String = ""
     private var prefDirMusic: String = ""
+    private var prefIsVideosMuted: Boolean = false
 
     @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -211,17 +212,19 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
 
         hideSystemBars()
 
-        prefBackground = PreferenceManager.getIntPreference(R.string.pfk_slideshow_bkg, prefBackground, this)
-        prefMediaType = PreferenceManager.getIntPreference(R.string.pfk_media_type, prefMediaType, this)
-        prefScale = PreferenceManager.getIntPreference(R.string.pfk_media_scale, prefScale, this)
+        prefBackground = PreferenceManager.getInt(R.string.gpf_slideshow_bkg, prefBackground, this)
+        prefMediaType = PreferenceManager.getInt(R.string.gpf_media_type, prefMediaType, this)
+        prefScale = PreferenceManager.getInt(R.string.gpf_media_scale, prefScale, this)
         val prefTransitionDefault = resources.getInteger(R.integer.pref_media_transition_default)
-        val prefTransition = PreferenceManager.getIntPreference(R.string.pfk_media_transition, prefTransitionDefault, this)
-        prefDuration = PreferenceManager.getLongPreference(R.string.pfk_img_duration, prefDuration, this) * 1000
-        prefDirMedia = PreferenceManager.getStringPreference(R.string.pfk_dir_media, "", this)
-        prefDirMusic = PreferenceManager.getStringPreference(R.string.pfk_dir_music, "", this)
-        val prefTime = PreferenceManager.getIntPreference(R.string.pfk_display_time, 1, this)
+        val prefTransition = PreferenceManager.getInt(R.string.gpf_media_transition, prefTransitionDefault, this)
+        prefDuration = PreferenceManager.getLong(R.string.gpf_img_duration, prefDuration, this) * 1000
+        prefDirMedia = PreferenceManager.getString(R.string.gpf_dir_media, "", this)
+        prefDirMusic = PreferenceManager.getString(R.string.gpf_dir_music, "", this)
+        prefIsVideosMuted = PreferenceManager.getBoolean(R.string.gpf_videos_muted, false, this)
+        val prefTime = PreferenceManager.getInt(R.string.gpf_display_time, 1, this)
         val lblTime: TextClock = findViewById(R.id.lbl_time)
         lblMsg = findViewById(R.id.err_msg)
+
 
         isBkgBlurred = prefBackground == Enums.PrefBackground.BLUR.id
         val container = findViewById<CoordinatorLayout>(R.id.container_slideshow)
@@ -610,14 +613,18 @@ class SlideShowActivity: AppCompatActivity(), MediaService.OnVideoPreparedListen
     private fun handleVideoMedia(uri: Uri, animOut: Animation) {
         runOnUiThread {
             prevContentType = Enums.MediaType.VIDEO
-            uri.path?.let { path ->
-                hasMediaAudio = mediaService?.hasAudioTrack(path) ?: false
-            } ?: run {
-                hasMediaAudio = false
-            }
-            if (hasMediaAudio) {
-                musicService?.pause()
+
+            if (!prefIsVideosMuted) {
+                uri.path?.let { path ->
+                    hasMediaAudio = mediaService?.hasAudioTrack(path) ?: false
+                    if (hasMediaAudio) {
+                        musicService?.pause()
+                    }
+                } ?: run {
+                    hasMediaAudio = false
+                }
             } else {
+                mediaService?.pauseAudio()
                 musicService?.resume()
             }
 

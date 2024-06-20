@@ -85,6 +85,8 @@
     <string name="transition_summary">Efectos visuales entre medios</string>
     <string name="duration_title">Duración de imágenes</string>
     <string name="duration_summary">Con qué frecuencia cambian las imágenes %s</string>
+    <string name="videos_muted_title">Silenciar videos</string>
+    <string name="videos_muted_summary">Silencia el audio del video durante la reproducción de diapositivas.</string>
     <string name="app_rate_title">Califica la aplicación</string>
     <string name="app_rate_summary">¿Te gusta la aplicación? Comparte tu opinión.</string>
     <string name="app_share_title">Comparte la aplicación</string>

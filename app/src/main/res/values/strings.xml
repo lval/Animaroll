@@ -82,6 +82,8 @@
     <string name="transition_summary">Visual effects between media</string>
     <string name="duration_title">Image duration</string>
     <string name="duration_summary">How often images change %s</string>
+    <string name="videos_muted_title">Mute videos</string>
+    <string name="videos_muted_summary">Mutes video audio during slideshow playback.</string>
     <string name="app_rate_title">Rate the app</string>
     <string name="app_rate_summary">Like the app? Please share your appreciation!</string>
     <string name="app_share_title">Share the app</string>

@@ -27,7 +27,7 @@ class MusicService(private val context: Context, private val songList: List<Uri>
     private fun initializePlayer() {
         if (musicPlayer == null && songList.isNotEmpty()) {
             try {
-                val storedTrack = loadStoredTrack()
+                val storedTrack: Int = loadStoredTrack()
                 if (storedTrack > 0 && storedTrack < songList.size) {
                     Log.d(Constant.TAG, "MusicPlayer: Stored song $storedTrack")
                     songIx = storedTrack
@@ -46,13 +46,12 @@ class MusicService(private val context: Context, private val songList: List<Uri>
     }
 
     private fun loadStoredTrack(): Int {
-        val prefs = PreferenceManager.getPreferences()
-        return prefs.getInt(context.getString(R.string.spf_music_ix), 0)
+        return PreferenceManager.getInt(R.string.opf_music_ix, 0, context)
     }
 
     private fun saveCurrentTrack() {
         val editor = PreferenceManager.getEditor()
-        editor.putInt(context.getString(R.string.spf_music_ix), songIx)
+        editor.putInt(context.getString(R.string.opf_music_ix), songIx)
         editor.apply()
     }
 

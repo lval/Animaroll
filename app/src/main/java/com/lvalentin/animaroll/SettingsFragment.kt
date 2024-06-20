@@ -27,7 +27,7 @@ class SettingsFragment: PreferenceFragmentCompat(),
         val sharedPreferences = preferenceManager.sharedPreferences
         sharedPreferences?.registerOnSharedPreferenceChangeListener(this)
 
-        findPreference<ListPreference>("pfk_slideshow_bkg")?.let {
+        findPreference<ListPreference>("gpf_slideshow_bkg")?.let {
             val defaultValue: String
             val currentValue = sharedPreferences?.getString(it.key, null)
             if (currentValue == null) {
