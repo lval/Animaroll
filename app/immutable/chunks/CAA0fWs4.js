@@ -1,0 +1,1 @@
+import{g as r}from"./D6wevtqh.js";const n=()=>"Starter Paks",s=()=>"Paks Iniciales",a=()=>"スターターパック",c=()=>"入门包",o=(i={},e={})=>{const t=e.locale??r();return t==="en"?n():t==="es"?s():t==="ja"?a():t==="zh-CN"?c():"packs_title"};export{o as p};
