@@ -1,4 +1,4 @@
 /* TEAM */
     Full-Stack Development & Design: Luis Valentin
+    Location: Ponce, PR
     Site: http://www.lvalentin.com/
-    From: Ponce, PR
