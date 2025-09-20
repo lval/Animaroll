@@ -1,0 +1,1 @@
+import{g as r}from"./Dbplm5tV.js";const n=()=>"Starter Paks",s=()=>"Paks Iniciales",c=()=>"Paks Iniciais",i=()=>"स्टार्टर पैक",a=()=>"スターターパック",_=()=>"入门包",p=(o={},e={})=>{const t=e.locale??r();return t==="en"?n():t==="es"?s():t==="pt-BR"?c():t==="hi"?i():t==="ja"?a():_()};export{p};
